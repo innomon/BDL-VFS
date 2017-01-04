@@ -1,0 +1,49 @@
+; Run the Http Virtual File Server
+; File Server Sample, You can implement the helper to serve files from Database
+; TODO: create a DB file serv sample
+
+; https://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html#parse(java.lang.String)
+LOG.LEVEL FINEST
+
+OBJECT VfsSample AS guru.megh.vfs.sample.VfsFileHelper
+WITH VfsSample
+ SET basePath = "/home/ashish/GitLabs/BBZ/dev-projects/vfs-sample/www"
+
+END WITH
+
+OBJECT VirtualFileSrvHelper AS in.innomon.srv.helper.VirtualFileSrvHelper
+WITH VirtualFileSrvHelper 
+   SET vFileGetter = VfsSample
+   SET webContextPath = "/"
+END WITH
+
+OBJECT DumpRequestHelper  AS  in.innomon.srv.helper.DumpRequestHelper
+WITH DumpRequestHelper
+   SET contextPath = "/dump"
+END WITH
+
+OBJECT DumpStackTraceHelper AS in.innomon.srv.helper.DumpStackTraceHelper
+WITH DumpStackTraceHelper
+   SET contextPath = "/stack"
+END WITH
+
+OBJECT SysTimeHelper  AS  in.innomon.srv.helper.SysTimeHelper
+WITH SysTimeHelper
+   SET contextPath = "/time"
+END WITH
+
+OBJECT HttpService AS in.innomon.srv.HttpService
+WITH HttpService
+  SET handler = VirtualFileSrvHelper
+   SET handler = SysTimeHelper
+   SET handler = DumpRequestHelper
+   SET handler = DumpStackTraceHelper
+END WITH
+
+OBJECT LifeCycleManager AS in.innomon.util.LifeCycleManager
+WITH LifeCycleManager
+ SET lifeCycle = HttpService
+END WITH
+
+RUN LifeCycleManager
+

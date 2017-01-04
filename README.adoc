@@ -1,0 +1,11 @@
+= Bean Deployment Language (BDL) File Server Sample
+
+A simple File Server using Java built-in Http Server.
+
+I have used http://netbeans.org/[netbeans IDE] for build.
+
+execute the `run` command. 
+
+See the `bdl` directory for the dependency injection.
+
+Here https://github.com/innomon/upay/wiki/BDL:-Bean-Deployment-Language[Bean Deployment Language (BDL)] is briefly explained.
