@@ -1,14 +1,4 @@
-= Bean Deployment Language (BDL) File Server Sample
-
-A simple File Server using Java built-in Http Server.
-
-I have used http://netbeans.org/[netbeans IDE] for build.
-
-execute the `run` command. 
-
-See the `bdl` directory for the dependency injection.
-
-== BDL (Bean Deployment Language) Files
+=== BDL (Bean Deployment Language) Files
 
 Inside the `bdl` Dir, *.bdl files are Bean Deployment Language (BDL), used for assembling the Java classes, using Inversion of Control design pattern.
 
