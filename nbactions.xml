@@ -12,7 +12,7 @@
             <properties>
                 <exec.args>-classpath %classpath twister.system.BDLParser sample-vfs.bdl</exec.args>
                 <exec.executable>java</exec.executable>
-                <exec.workingdir>/home/ashish/GitLabs/BBZ/dev-projects/vfs-sample/bdl</exec.workingdir>
+                <exec.workingdir>/backup/DhiruLab/BDL-VFS/bdl</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -28,7 +28,7 @@
                 <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath twister.system.BDLParser sample-vfs.bdl</exec.args>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
-                <exec.workingdir>/home/ashish/GitLabs/BBZ/dev-projects/vfs-sample/bdl</exec.workingdir>
+                <exec.workingdir>/backup/DhiruLab/BDL-VFS/bdl</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -43,7 +43,7 @@
             <properties>
                 <exec.args>-classpath %classpath twister.system.BDLParser sample-vfs.bdl</exec.args>
                 <exec.executable>java</exec.executable>
-                <exec.workingdir>/home/ashish/GitLabs/BBZ/dev-projects/vfs-sample/bdl</exec.workingdir>
+                <exec.workingdir>/backup/DhiruLab/BDL-VFS/bdl</exec.workingdir>
             </properties>
         </action>
     </actions>

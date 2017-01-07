@@ -5,9 +5,9 @@
 ; https://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html#parse(java.lang.String)
 LOG.LEVEL FINEST
 
-OBJECT VfsSample AS guru.megh.vfs.sample.VfsFileHelper
+OBJECT VfsSample AS biz.qzip.resource.helper.ResourceGetHelper
 WITH VfsSample
- SET basePath = "/home/ashish/GitLabs/BBZ/dev-projects/vfs-sample/www"
+ SET basePath = "/www"
 
 END WITH
 
