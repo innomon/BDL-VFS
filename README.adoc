@@ -6,6 +6,8 @@ I have used http://netbeans.org/[netbeans IDE] for build.
 
 execute the `run` command. 
 
+By default, `HttpService` listens at `7070` port of `localhost`
+
 See the `bdl` directory for the dependency injection.
 
 == BDL (Bean Deployment Language) Files

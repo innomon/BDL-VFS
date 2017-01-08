@@ -39,7 +39,7 @@ public class VirtualFileSrvHelper extends SysTimeHelper {
    
     private String webContextPath = "/";
  
-    private DbGetHelper vFileGetter = null;
+    private VfsGetHelper vFileGetter = null;
     private DbGetHelper mimes = new Mimes();
 
     @Override
@@ -62,12 +62,12 @@ public class VirtualFileSrvHelper extends SysTimeHelper {
 
         //System.out.println("subpath [" + subPath + "]");
 
-        byte[] content = (byte[]) vFileGetter.get(subPath).getBytes(); // TODO: check safe conversion by instanceof
+        byte[] content =  vFileGetter.get(subPath);
         int respCode = 200;
         String contentType = "text/html";
         if (content == null) {
             respCode = 404;
-            content = (byte[]) vFileGetter.get("/"+respCode+".html").getBytes(); // TODO: check safe conversion by instanceof
+            content =  vFileGetter.get("/"+respCode+".html"); // TODO: check safe conversion by instanceof
             if (content == null) {
                 content = fourOfourMsg.getBytes();
             }
@@ -75,7 +75,7 @@ public class VirtualFileSrvHelper extends SysTimeHelper {
             contentType = getContentType(subPath);
             if (contentType == null) {
                 respCode = 403;
-                content = (byte[]) vFileGetter.get("/"+respCode+".html").getBytes();  // TODO: check safe conversion by instanceof
+                content = vFileGetter.get("/"+respCode+".html");  // TODO: check safe conversion by instanceof
                 if (content == null) {
                     content = fourOthreeMsg.getBytes();
                 }
@@ -89,11 +89,11 @@ public class VirtualFileSrvHelper extends SysTimeHelper {
         out.close();
     }
 
-    public DbGetHelper getVFileGetter() {
+    public VfsGetHelper getVFileGetter() {
         return vFileGetter;
     }
 
-    public void setVFileGetter(DbGetHelper vFileGetter) {
+    public void setVFileGetter(VfsGetHelper vFileGetter) {
         this.vFileGetter = vFileGetter;
     }
 
